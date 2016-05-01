@@ -1,7 +1,7 @@
-package Crandor.Strategies;
+package org.parabot.crandor.fishing.strategies;
 
 
-import Crandor.Resources.Methods;
+import org.parabot.crandor.fishing.resources.Methods;
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.scripts.framework.SleepCondition;
 import org.parabot.environment.scripts.framework.Strategy;

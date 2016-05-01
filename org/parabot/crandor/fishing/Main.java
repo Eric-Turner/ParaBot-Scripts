@@ -1,9 +1,9 @@
-package Crandor;
+package org.parabot.crandor.fishing;
 
-import Crandor.Resources.GUI;
-import Crandor.Strategies.Banking;
-import Crandor.Strategies.Dropping;
-import Crandor.Strategies.Fishing;
+import org.parabot.crandor.fishing.resources.GUI;
+import org.parabot.crandor.fishing.strategies.Banking;
+import org.parabot.crandor.fishing.strategies.Dropping;
+import org.parabot.crandor.fishing.strategies.Fishing;
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.scripts.Category;
 import org.parabot.environment.scripts.Script;

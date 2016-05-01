@@ -1,4 +1,4 @@
-package Crandor.Resources;
+package org.parabot.crandor.fishing.resources;
 
 import org.parabot.core.reflect.RefClass;
 import org.parabot.core.reflect.RefMethod;
