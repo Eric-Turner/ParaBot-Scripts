@@ -47,30 +47,32 @@ public class Banking implements Strategy {
             }, 1500);
         }
         SceneObject bank = SceneObjects.getClosest(BANK_BOOTH_ID);
-        if (bank.distanceTo() <= 5) {
-            if (Game.getOpenInterfaceId() != BANK_INTERFACE_ID) {
-                bank.interact(SceneObjects.Option.USE_QUICKLY);
-                Time.sleep(new SleepCondition() {
-                    @Override
-                    public boolean isValid() {
-                        return Game.getOpenInterfaceId() == BANK_INTERFACE_ID;
-                    }
-                }, 5000);
-            } else {
-                if (Game.getOpenInterfaceId() == BANK_INTERFACE_ID) {
-                    if (Inventory.isFull()) {
-                        for (Item x : Inventory.getItems()) {
-                            if (x != null) {
-                                if (x.getId() != FISHING_TOOL_IDS[0] && x.getId() != FISHING_TOOL_IDS[1] && x.getId() != FISHING_TOOL_IDS[2]) {
-                                    Menu.sendAction(78, x.getId() - 1, x.getSlot(), 5064);
-                                    Time.sleep(100);
+        if (bank != null) {
+            if (bank.distanceTo() <= 5) {
+                if (Game.getOpenInterfaceId() != BANK_INTERFACE_ID) {
+                    bank.interact(SceneObjects.Option.USE_QUICKLY);
+                    Time.sleep(new SleepCondition() {
+                        @Override
+                        public boolean isValid() {
+                            return Game.getOpenInterfaceId() == BANK_INTERFACE_ID;
+                        }
+                    }, 5000);
+                } else {
+                    if (Game.getOpenInterfaceId() == BANK_INTERFACE_ID) {
+                        if (Inventory.isFull()) {
+                            for (Item x : Inventory.getItems()) {
+                                if (x != null) {
+                                    if (x.getId() != FISHING_TOOL_IDS[0] && x.getId() != FISHING_TOOL_IDS[1] && x.getId() != FISHING_TOOL_IDS[2]) {
+                                        Menu.sendAction(78, x.getId() - 1, x.getSlot(), 5064);
+                                        Time.sleep(100);
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (!Inventory.isFull()) {
-                        if (Game.getOpenInterfaceId() == BANK_INTERFACE_ID) {
-                            Methods.closeBank();
+                        if (!Inventory.isFull()) {
+                            if (Game.getOpenInterfaceId() == BANK_INTERFACE_ID) {
+                                Methods.closeBank();
+                            }
                         }
                     }
                 }
