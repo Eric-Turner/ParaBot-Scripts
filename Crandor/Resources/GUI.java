@@ -67,13 +67,13 @@ public class GUI extends JFrame {
                 switch (comboBox.getSelectedItem().toString()) {
                     case "Net":
                         System.out.println("net");
-                        Fishing.net_fishing = true;
+                        Fishing.netFishing = true;
                         break;
                     case "Cage":
-                        Fishing.cage_fishing = true;
+                        Fishing.cageFishing = true;
                         break;
                     case "Harpoon":
-                        Fishing.harpoon_fishing = true;
+                        Fishing.harpoonFishing = true;
                         break;
                 }
                 if (rdbtnBank.isSelected())
@@ -84,7 +84,7 @@ public class GUI extends JFrame {
 
 
                 if (chckbxAutoProgression.isSelected())
-                    Fishing.auto_progression = true;
+                    Fishing.autoProgression = true;
 
                 GUI.this.setVisible(false);
                 GUI.this.dispose();

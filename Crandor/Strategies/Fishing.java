@@ -13,10 +13,10 @@ import org.rev317.min.api.wrappers.TilePath;
  * Created by Eric on 4/29/2016.
  */
 public class Fishing implements org.parabot.environment.scripts.framework.Strategy {
-    public static boolean net_fishing = false;
-    public static boolean harpoon_fishing = false;
-    public static boolean cage_fishing = false;
-    public static boolean auto_progression = false;
+    public static boolean netFishing = false;
+    public static boolean harpoonFishing = false;
+    public static boolean cageFishing = false;
+    public static boolean autoProgression = false;
 
     static Tile lastTile;
     static Tile[] WALKING_PATH = {
@@ -27,8 +27,8 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
     public static TilePath toSpot = new TilePath(WALKING_PATH);
 
 
-    int fishing_animation_id;
-    int fishing_spot_id;
+    int fishingAnim;
+    int fishingSpotId;
 
     Npcs.Option interactOption;
 
@@ -50,13 +50,13 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
             }, 1500);
         }
 
-        if (auto_progression) {
+        if (autoProgression) {
 
             //Will update to work when the hooks are added to get current skill level
 
             /*if (Methods.isBetween(Skill.FISHING.getLevel(), 1, 34)) {
                 //Net Fishing
-                fishing_spot_id = 25375;
+                fishingSpotId = 25375;
 
             }
             if (Methods.isBetween(Skill.FISHING.getLevel(), 35, 40)) {
@@ -67,29 +67,29 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
             }*/
         } else {
 
-            if (net_fishing) {
-                fishing_spot_id = 316;
-                fishing_animation_id = 621;
+            if (netFishing) {
+                fishingSpotId = 316;
+                fishingAnim = 621;
                 interactOption = Npcs.Option.NET;
             }
-            if (cage_fishing) {
-                fishing_spot_id = 312;
-                fishing_animation_id = 619;
+            if (cageFishing) {
+                fishingSpotId = 312;
+                fishingAnim = 619;
                 interactOption = Npcs.Option.CAGE;
             }
-            if (harpoon_fishing) {
-                fishing_spot_id = 312;
-                fishing_animation_id = 618;
+            if (harpoonFishing) {
+                fishingSpotId = 312;
+                fishingAnim = 618;
                 interactOption = Npcs.Option.HARPOON;
             }
 
-            final Npc fishSpot = Npcs.getClosest(fishing_spot_id);
-            if (fishSpot != null) {
-                if (fishSpot.distanceTo() <= 5) {
+            final Npc fishingSpot = Npcs.getClosest(fishingSpotId);
+            if (fishingSpot != null) {
+                if (fishingSpot.distanceTo() <= 5) {
                     //Start fishing
-                    if (fishSpot != null) {
-                        if (Players.getMyPlayer().getAnimation() != fishing_animation_id) {
-                            fishSpot.interact(interactOption);
+                    if (fishingSpot != null) {
+                        if (Players.getMyPlayer().getAnimation() != fishingAnim) {
+                            fishingSpot.interact(interactOption);
                             Time.sleep(1000);
                         }
                     }
