@@ -61,28 +61,32 @@ public class GUI extends JFrame {
         btnStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                switch (comboBox.getSelectedItem().toString()) {
-                    case "Net":
-                        Constants.setNetFishing(true);
-                        Constants.setFishingSpotId(Constants.FishingTypes.NET.getSpotId());
-                        Constants.setFishingAnim(Constants.FishingTypes.NET.getAnimId());
-                        Constants.setInteractOption(Constants.FishingTypes.NET.getOption());
-                        Constants.setFishingToolId(Constants.FishingTypes.NET.getToolId());
-                        break;
-                    case "Cage":
-                        Constants.setCageFishing(true);
-                        Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
-                        Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
-                        Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
-                        Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
-                        break;
-                    case "Harpoon":
-                        Constants.setHarpoonFishing(true);
-                        Constants.setFishingSpotId(Constants.FishingTypes.HARPOON.getSpotId());
-                        Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
-                        Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
-                        Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
-                        break;
+                if (chckbxAutoProgression.isSelected()) {
+                    Constants.setAutoProgression(true);
+                } else {
+                    switch (comboBox.getSelectedItem().toString()) {
+                        case "Net":
+                            Constants.setNetFishing(true);
+                            Constants.setFishingSpotId(Constants.FishingTypes.NET.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.NET.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.NET.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.NET.getToolId());
+                            break;
+                        case "Cage":
+                            Constants.setCageFishing(true);
+                            Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
+                            break;
+                        case "Harpoon":
+                            Constants.setHarpoonFishing(true);
+                            Constants.setFishingSpotId(Constants.FishingTypes.HARPOON.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
+                            break;
+                    }
                 }
                 if (rdbtnBank.isSelected())
                     Constants.setBanking(true);
@@ -90,9 +94,6 @@ public class GUI extends JFrame {
                 if (rdbtnPowerfish.isSelected())
                     Constants.setDropping(true);
 
-
-                /*if (chckbxAutoProgression.isSelected())
-                    Constants.setAutoProgression(true);*/
 
                 GUI.this.setVisible(false);
                 GUI.this.dispose();

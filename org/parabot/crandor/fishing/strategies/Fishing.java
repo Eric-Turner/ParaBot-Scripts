@@ -1,11 +1,13 @@
 package org.parabot.crandor.fishing.strategies;
 
 import org.parabot.crandor.fishing.resources.Constants;
+import org.parabot.crandor.fishing.resources.Methods;
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.scripts.framework.SleepCondition;
 import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.Players;
+import org.rev317.min.api.methods.Skill;
 import org.rev317.min.api.wrappers.Npc;
 
 /**
@@ -31,22 +33,41 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
             }, 1500);
         }
 
-        /*if (Constants.isAutoProgression()) {
+        if (Constants.AutoProgression()) {
 
             //Will update to work when the hooks are added to get current skill level
 
-            if (Methods.isBetween(Skill.FISHING.getLevel(), 1, 34)) {
+            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 1, 34)) {
                 //Net Fishing
-                fishingSpotId = 25375;
-
+                Constants.setNetFishing(true);
+                Constants.setCageFishing(false);
+                Constants.setHarpoonFishing(false);
+                Constants.setFishingSpotId(Constants.FishingTypes.NET.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.NET.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.NET.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.NET.getToolId());
             }
-            if (Methods.isBetween(Skill.FISHING.getLevel(), 35, 40)) {
+            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 35, 40)) {
                 //Harpoon fishing
+                Constants.setNetFishing(false);
+                Constants.setCageFishing(true);
+                Constants.setHarpoonFishing(false);
+                Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
             }
-            if (Methods.isBetween(Skill.FISHING.getLevel(), 40, 99)) {
+            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 40, 99)) {
                 //Cage fishing
+                Constants.setNetFishing(false);
+                Constants.setCageFishing(false);
+                Constants.setHarpoonFishing(true);
+                Constants.setFishingSpotId(Constants.FishingTypes.HARPOON.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
             }
-        }else */
+        }
         final Npc fishingSpot = Npcs.getClosest(Constants.getFishingSpotId());
         if (fishingSpot != null) {
             if (fishingSpot.distanceTo() <= 5) {

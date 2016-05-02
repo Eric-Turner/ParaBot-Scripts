@@ -61,7 +61,7 @@ public class Constants {
         Constants.cageFishing = cageFishing;
     }
 
-    public static boolean isAutoProgression() {
+    public static boolean AutoProgression() {
         return autoProgression;
     }
 

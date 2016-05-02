@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by Eric on 4/29/2016.
  */
-@ScriptManifest(author = "EricTurner", category = Category.FISHING, description = "Fishing Application Script", name = "eFishing", servers = {"Crandor"}, version = 1)
+@ScriptManifest(author = "EricTurner", category = Category.FISHING, description = "Fishing Application Script", name = "eFishing", servers = {"Crandor"}, version = 3)
 public class Main extends Script {
 
 
