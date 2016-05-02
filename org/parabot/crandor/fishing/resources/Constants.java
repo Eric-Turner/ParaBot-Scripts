@@ -10,55 +10,17 @@ import org.rev317.min.api.wrappers.TilePath;
 public class Constants {
 
 
-
-
-    public enum FishingTypes {
-        NET(304, 621, 316, Npcs.Option.NET), CAGE(302, 619, 312, Npcs.Option.CAGE), HARPOON(312, 618, 312, Npcs.Option.HARPOON);
-
-        private final int toolId;
-        private final int animId;
-        private final int spotId;
-        private final Npcs.Option option;
-
-        FishingTypes(int toolId, int animId, int spotId, Npcs.Option option) {
-            this.toolId = toolId;
-            this.animId = animId;
-            this.spotId = spotId;
-            this.option = option;
-        }
-
-        public int getToolId() {
-            return toolId;
-        }
-
-        public int getAnimId() {
-            return animId;
-        }
-
-        public int getSpotId() {
-            return spotId;
-        }
-
-        public Npcs.Option getOption() {
-            return option;
-        }
-    }
-
-
     static final int BANK_BOOTH_ID = 2213;
     static final int BANK_INTERFACE_ID = 5292;
-
     final static int WITHDRAW_ONE = 632;
     final static int WITHDRAW_FIVE = 78;
     final static int WITHDRAW_TEN = 867;
     final static int WITHDRAW_X = 431;
     final static int WITHDRAW_ALL = 53;
     final static int WITHDRAW_ALL_BUT_ONE = 432;
-
     static int fishingAnim;
     static int fishingSpotId;
     static int fishingToolId;
-
     static boolean netFishing = false;
     static boolean harpoonFishing = false;
     static boolean cageFishing = false;
@@ -66,20 +28,16 @@ public class Constants {
     static boolean dropping = false;
     static boolean running = false;
     static boolean autoProgression = false;
-
     static Tile[] WALKING_PATH_TO_BANK = {
             new Tile(2601, 3406, 0),
             new Tile(2593, 3415, 0),
             new Tile(2586, 3421, 0)};
-
     static Npcs.Option interactOption;
-
     static Tile[] WALKING_PATH_TO_SPOT = {
             new Tile(2586, 3421, 0),
             new Tile(2593, 3415, 0),
             new Tile(2601, 3406, 0),
             new Tile(2604, 3414, 0)};
-
     static TilePath toSpot = new TilePath(WALKING_PATH_TO_SPOT);
     static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
 
@@ -147,12 +105,12 @@ public class Constants {
         Constants.netFishing = netFishing;
     }
 
-    public static void setFishingToolId(int fishingToolId) {
-        Constants.fishingToolId = fishingToolId;
-    }
-
     public static int getFishingToolId() {
         return fishingToolId;
+    }
+
+    public static void setFishingToolId(int fishingToolId) {
+        Constants.fishingToolId = fishingToolId;
     }
 
     public static boolean isRunning() {
@@ -190,6 +148,7 @@ public class Constants {
     public static int getBankBoothId() {
         return BANK_BOOTH_ID;
     }
+
     public static int getWithdrawFive() {
         return WITHDRAW_FIVE;
     }
@@ -212,5 +171,37 @@ public class Constants {
 
     public static int getWithdrawAllButOne() {
         return WITHDRAW_ALL_BUT_ONE;
+    }
+
+    public enum FishingTypes {
+        NET(304, 621, 316, Npcs.Option.NET), CAGE(302, 619, 312, Npcs.Option.CAGE), HARPOON(312, 618, 312, Npcs.Option.HARPOON);
+
+        private final int toolId;
+        private final int animId;
+        private final int spotId;
+        private final Npcs.Option option;
+
+        FishingTypes(int toolId, int animId, int spotId, Npcs.Option option) {
+            this.toolId = toolId;
+            this.animId = animId;
+            this.spotId = spotId;
+            this.option = option;
+        }
+
+        public int getToolId() {
+            return toolId;
+        }
+
+        public int getAnimId() {
+            return animId;
+        }
+
+        public int getSpotId() {
+            return spotId;
+        }
+
+        public Npcs.Option getOption() {
+            return option;
+        }
     }
 }

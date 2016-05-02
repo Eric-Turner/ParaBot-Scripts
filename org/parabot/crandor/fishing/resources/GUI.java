@@ -4,9 +4,6 @@ package org.parabot.crandor.fishing.resources;
  * Created by Eric on 4/29/2016.
  */
 
-import org.parabot.crandor.fishing.Main;
-import org.parabot.crandor.fishing.strategies.Fishing;
-
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;

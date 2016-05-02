@@ -12,16 +12,12 @@ import org.rev317.min.api.methods.Menu;
 import org.rev317.min.api.methods.SceneObjects;
 import org.rev317.min.api.wrappers.Item;
 import org.rev317.min.api.wrappers.SceneObject;
-import org.rev317.min.api.wrappers.Tile;
-import org.rev317.min.api.wrappers.TilePath;
 
 
 /**
  * Created by Eric on 4/6/2016.
  */
 public class Banking implements Strategy {
-
-
 
 
     @Override

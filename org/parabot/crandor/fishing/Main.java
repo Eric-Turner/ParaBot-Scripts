@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class Main extends Script {
 
 
-
     private final ArrayList<Strategy> strategies = new ArrayList<Strategy>();
 
     @Override

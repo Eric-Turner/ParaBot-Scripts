@@ -14,7 +14,6 @@ import org.rev317.min.api.wrappers.Tile;
 public class Methods {
 
 
-
     public static void walkTo(Tile to) {
         RefClass refClass = new RefClass(Loader.getClient());
         RefMethod method = refClass.getMethod("walkTo");

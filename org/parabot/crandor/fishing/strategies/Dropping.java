@@ -11,7 +11,6 @@ import org.rev317.min.api.wrappers.Item;
 public class Dropping implements org.parabot.environment.scripts.framework.Strategy {
 
 
-
     @Override
     public boolean activate() {
         return Inventory.isFull();
