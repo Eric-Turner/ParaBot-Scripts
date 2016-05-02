@@ -49,16 +49,7 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
             }
             if (Methods.isBetween(Skill.FISHING.getRealLevel(), 35, 40)) {
                 //Harpoon fishing
-                Constants.setNetFishing(false);
-                Constants.setCageFishing(true);
-                Constants.setHarpoonFishing(false);
-                Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
-            }
-            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 40, 99)) {
-                //Cage fishing
+
                 Constants.setNetFishing(false);
                 Constants.setCageFishing(false);
                 Constants.setHarpoonFishing(true);
@@ -66,6 +57,17 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
                 Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
                 Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
                 Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
+
+            }
+            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 40, 99)) {
+                //Cage fishing
+                Constants.setNetFishing(false);
+                Constants.setCageFishing(true);
+                Constants.setHarpoonFishing(false);
+                Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
             }
         }
         final Npc fishingSpot = Npcs.getClosest(Constants.getFishingSpotId());
