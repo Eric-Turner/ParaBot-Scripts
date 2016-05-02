@@ -1,5 +1,6 @@
 package org.parabot.crandor.fishing.strategies;
 
+import org.parabot.crandor.fishing.resources.Constants;
 import org.parabot.environment.api.utils.Time;
 import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.wrappers.Item;
@@ -9,7 +10,7 @@ import org.rev317.min.api.wrappers.Item;
  */
 public class Dropping implements org.parabot.environment.scripts.framework.Strategy {
 
-    final int[] FISHING_TOOL_IDS = {304, 312, 302};
+
 
     @Override
     public boolean activate() {
@@ -20,7 +21,7 @@ public class Dropping implements org.parabot.environment.scripts.framework.Strat
     public void execute() {
         for (Item x : Inventory.getItems()) {
             if (x != null) {
-                if (x.getId() != FISHING_TOOL_IDS[0] && x.getId() != FISHING_TOOL_IDS[1] && x.getId() != FISHING_TOOL_IDS[2]) {
+                if (x.getId() != Constants.getFishingToolId()) {
                     x.drop();
                     Time.sleep(25);
                 }

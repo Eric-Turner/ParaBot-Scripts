@@ -1,5 +1,6 @@
 package org.parabot.crandor.fishing;
 
+import org.parabot.crandor.fishing.resources.Constants;
 import org.parabot.crandor.fishing.resources.GUI;
 import org.parabot.crandor.fishing.strategies.Banking;
 import org.parabot.crandor.fishing.strategies.Dropping;
@@ -19,9 +20,7 @@ import java.util.ArrayList;
 @ScriptManifest(author = "EricTurner", category = Category.FISHING, description = "Fishing Application Script", name = "eFishing", servers = {"Crandor"}, version = 1)
 public class Main extends Script {
 
-    public static boolean banking = false;
-    public static boolean dropping = false;
-    public static boolean running = false;
+
 
     private final ArrayList<Strategy> strategies = new ArrayList<Strategy>();
 
@@ -32,15 +31,17 @@ public class Main extends Script {
         Time.sleep(new SleepCondition() {
             @Override
             public boolean isValid() {
-                return running;
+                return Constants.isRunning();
             }
         }, Integer.MAX_VALUE);
-        if (banking == true) {
+
+        if (Constants.isBanking()) {
             strategies.add(new Banking());
         }
-        if (dropping == true) {
+        if (Constants.isDropping()) {
             strategies.add(new Dropping());
         }
+
         strategies.add(new Fishing());
         provide(strategies);
         return true;

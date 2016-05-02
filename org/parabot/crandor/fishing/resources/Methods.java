@@ -13,12 +13,7 @@ import org.rev317.min.api.wrappers.Tile;
  */
 public class Methods {
 
-    final static int WITHDRAW_ONE = 1;
-    final static int WITHDRAW_FIVE = 5;
-    final static int WITHDRAW_TEN = 10;
-    final static int WITHDRAW_X = 29;
-    final static int WITHDRAW_ALL = 99;
-    final static int WITHDRAW_ALL_BUT_ONE = 98;
+
 
     public static void walkTo(Tile to) {
         RefClass refClass = new RefClass(Loader.getClient());
@@ -32,32 +27,6 @@ public class Methods {
 
     public static void closeBank() {
         Menu.sendAction(200, 1323, 6, 5384);
-    }
-
-    public static void withdrawFromBank(int withdrawActionNum, int itemId) {
-        switch (withdrawActionNum) {
-            case WITHDRAW_ONE:
-                Menu.sendAction(632, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-            case WITHDRAW_FIVE:
-                Menu.sendAction(78, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-            case WITHDRAW_TEN:
-                Menu.sendAction(867, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-            case WITHDRAW_X:
-                Menu.sendAction(431, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-            case WITHDRAW_ALL:
-                Menu.sendAction(53, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-            case WITHDRAW_ALL_BUT_ONE:
-                Menu.sendAction(432, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-            default:
-                Menu.sendAction(632, itemId - 1, getBankSlot(itemId), 5382);
-                break;
-        }
     }
 
     public static int getBankSlot(int itemId) {

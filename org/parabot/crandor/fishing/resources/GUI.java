@@ -66,30 +66,41 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 switch (comboBox.getSelectedItem().toString()) {
                     case "Net":
-                        System.out.println("net");
-                        Fishing.netFishing = true;
+                        Constants.setNetFishing(true);
+                        Constants.setFishingSpotId(Constants.FishingTypes.NET.getSpotId());
+                        Constants.setFishingAnim(Constants.FishingTypes.NET.getAnimId());
+                        Constants.setInteractOption(Constants.FishingTypes.NET.getOption());
+                        Constants.setFishingToolId(Constants.FishingTypes.NET.getToolId());
                         break;
                     case "Cage":
-                        Fishing.cageFishing = true;
+                        Constants.setCageFishing(true);
+                        Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
+                        Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
+                        Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
+                        Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
                         break;
                     case "Harpoon":
-                        Fishing.harpoonFishing = true;
+                        Constants.setHarpoonFishing(true);
+                        Constants.setFishingSpotId(Constants.FishingTypes.HARPOON.getSpotId());
+                        Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
+                        Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
+                        Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
                         break;
                 }
                 if (rdbtnBank.isSelected())
-                    Main.banking = true;
+                    Constants.setBanking(true);
 
                 if (rdbtnPowerfish.isSelected())
-                    Main.dropping = true;
+                    Constants.setDropping(true);
 
 
-                if (chckbxAutoProgression.isSelected())
-                    Fishing.autoProgression = true;
+                /*if (chckbxAutoProgression.isSelected())
+                    Constants.setAutoProgression(true);*/
 
                 GUI.this.setVisible(false);
                 GUI.this.dispose();
 
-                Main.running = true;
+                Constants.setRunning(true);
 
             }
         });
