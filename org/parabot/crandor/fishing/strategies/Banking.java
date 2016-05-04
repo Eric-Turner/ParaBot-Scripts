@@ -27,7 +27,7 @@ public class Banking implements Strategy {
 
     @Override
     public void execute() {
-        if (Constants.getToBank().getTiles()[2].distanceTo() > 7) {
+        if (Constants.getToBank().getTiles()[2].distanceTo() > 5) {
             Constants.getToBank().traverse();
             Time.sleep(new SleepCondition() {
                 @Override

@@ -10,45 +10,45 @@ import org.rev317.min.api.wrappers.TilePath;
 public class Constants {
 
 
-    static final int BANK_BOOTH_ID = 2213;
-    static final int BANK_INTERFACE_ID = 5292;
-    final static int WITHDRAW_ONE = 632;
-    final static int WITHDRAW_FIVE = 78;
-    final static int WITHDRAW_TEN = 867;
-    final static int WITHDRAW_X = 431;
-    final static int WITHDRAW_ALL = 53;
-    final static int WITHDRAW_ALL_BUT_ONE = 432;
-    static int fishingAnim;
-    static int fishingSpotId;
-    static int fishingToolId;
-    static boolean netFishing = false;
-    static boolean harpoonFishing = false;
-    static boolean cageFishing = false;
-    static boolean rocktailFishing = false;
-    static boolean banking = false;
-    static boolean dropping = false;
-    static boolean running = false;
-    static boolean autoProgression = false;
-    static Npcs.Option interactOption;
-    static Tile[] WALKING_PATH_TO_BANK = {
+    private final static int BANK_BOOTH_ID = 2213;
+    private final static int BANK_INTERFACE_ID = 5292;
+    private final static int WITHDRAW_ONE = 632;
+    private final static int WITHDRAW_FIVE = 78;
+    private final static int WITHDRAW_TEN = 867;
+    private final static int WITHDRAW_X = 431;
+    private final static int WITHDRAW_ALL = 53;
+    private final static int WITHDRAW_ALL_BUT_ONE = 432;
+    private static int fishingAnim;
+    private static int fishingSpotId;
+    private static int fishingToolId;
+    private static boolean netFishing = false;
+    private static boolean harpoonFishing = false;
+    private static boolean cageFishing = false;
+    private static boolean rocktailFishing = false;
+    private static boolean banking = false;
+    private static boolean dropping = false;
+    private static boolean running = false;
+    private static boolean autoProgression = false;
+    private static Npcs.Option interactOption;
+    private static Tile[] WALKING_PATH_TO_BANK = {
             new Tile(2601, 3406, 0),
             new Tile(2593, 3415, 0),
             new Tile(2586, 3421, 0)
     };
-    static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
+    private static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
             new Tile(2586, 3421, 0),
             new Tile(2593, 3415, 0),
             new Tile(2601, 3406, 0),
             new Tile(2604, 3414, 0)
     };
-    static Tile[] WALKING_PATH_TO_DOCK_2 = { // Rocktail, cage, harpoon dock
+    private static Tile[] WALKING_PATH_TO_DOCK_2 = { // Rocktail, cage, harpoon dock
             new Tile(2594, 3418, 0),
             new Tile(2600, 3422, 0)
     };
-    static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
-    static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
-    static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
-    static TilePath toSpot;
+    private static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
+    private static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
+    private static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
+    private static TilePath toSpot;
 
     public static TilePath getToSpot() {
         return toSpot;
