@@ -30,18 +30,18 @@ public class Constants {
     private static boolean running = false;
     private static boolean autoProgression = false;
     private static Npcs.Option interactOption;
-    private final static Tile[] WALKING_PATH_TO_BANK = {
+    public final static Tile[] WALKING_PATH_TO_BANK = {
             new Tile(2601, 3406, 0),
             new Tile(2593, 3415, 0),
             new Tile(2586, 3421, 0)
     };
-    private final static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
+    public final static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
             new Tile(2586, 3421, 0),
             new Tile(2593, 3415, 0),
             new Tile(2601, 3406, 0),
             new Tile(2604, 3414, 0)
     };
-    private static Tile[] WALKING_PATH_TO_DOCK_2 = { // Rocktail, cage, harpoon dock
+    public static Tile[] WALKING_PATH_TO_DOCK_2 = { // Rocktail, cage, harpoon dock
             new Tile(2594, 3418, 0),
             new Tile(2600, 3422, 0)
     };
