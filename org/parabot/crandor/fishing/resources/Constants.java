@@ -30,12 +30,12 @@ public class Constants {
     private static boolean running = false;
     private static boolean autoProgression = false;
     private static Npcs.Option interactOption;
-    private static Tile[] WALKING_PATH_TO_BANK = {
+    private final static Tile[] WALKING_PATH_TO_BANK = {
             new Tile(2601, 3406, 0),
             new Tile(2593, 3415, 0),
             new Tile(2586, 3421, 0)
     };
-    private static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
+    private final static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
             new Tile(2586, 3421, 0),
             new Tile(2593, 3415, 0),
             new Tile(2601, 3406, 0),
@@ -45,9 +45,9 @@ public class Constants {
             new Tile(2594, 3418, 0),
             new Tile(2600, 3422, 0)
     };
-    private static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
-    private static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
-    private static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
+    private final static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
+    private final static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
+    private final static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
     private static TilePath toSpot;
 
     public static TilePath getToSpot() {
