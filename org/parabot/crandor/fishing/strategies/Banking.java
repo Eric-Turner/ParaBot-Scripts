@@ -36,19 +36,19 @@ public class Banking implements Strategy {
                 }
             }, 1500);
         }
-        SceneObject bank = SceneObjects.getClosest(Constants.getBankBoothId());
+        SceneObject bank = SceneObjects.getClosest(Constants.BANK_BOOTH_ID);
         if (bank != null) {
             if (bank.distanceTo() <= 5) {
-                if (Game.getOpenInterfaceId() != Constants.getBankInterfaceId()) {
+                if (Game.getOpenInterfaceId() != Constants.BANK_INTERFACE_ID) {
                     bank.interact(SceneObjects.Option.USE_QUICKLY);
                     Time.sleep(new SleepCondition() {
                         @Override
                         public boolean isValid() {
-                            return Game.getOpenInterfaceId() == Constants.getBankInterfaceId();
+                            return Game.getOpenInterfaceId() == Constants.BANK_INTERFACE_ID;
                         }
                     }, 5000);
                 } else {
-                    if (Game.getOpenInterfaceId() == Constants.getBankInterfaceId()) {
+                    if (Game.getOpenInterfaceId() == Constants.BANK_INTERFACE_ID) {
                         if (Inventory.isFull()) {
                             for (Item x : Inventory.getItems()) {
                                 if (x != null) {
@@ -60,7 +60,7 @@ public class Banking implements Strategy {
                             }
                         }
                         if (!Inventory.isFull()) {
-                            if (Game.getOpenInterfaceId() == Constants.getBankInterfaceId()) {
+                            if (Game.getOpenInterfaceId() == Constants.BANK_INTERFACE_ID) {
                                 Methods.closeBank();
                             }
                         }

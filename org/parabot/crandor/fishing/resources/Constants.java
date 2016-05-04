@@ -10,14 +10,14 @@ import org.rev317.min.api.wrappers.TilePath;
 public class Constants {
 
 
-    private final static int BANK_BOOTH_ID = 2213;
-    private final static int BANK_INTERFACE_ID = 5292;
-    private final static int WITHDRAW_ONE = 632;
-    private final static int WITHDRAW_FIVE = 78;
-    private final static int WITHDRAW_TEN = 867;
-    private final static int WITHDRAW_X = 431;
-    private final static int WITHDRAW_ALL = 53;
-    private final static int WITHDRAW_ALL_BUT_ONE = 432;
+    public final static int BANK_BOOTH_ID = 2213;
+    public final static int BANK_INTERFACE_ID = 5292;
+    public final static int WITHDRAW_ONE = 632;
+    public final static int WITHDRAW_FIVE = 78;
+    public final static int WITHDRAW_TEN = 867;
+    public final static int WITHDRAW_X = 431;
+    public final static int WITHDRAW_ALL = 53;
+    public final static int WITHDRAW_ALL_BUT_ONE = 432;
     private static int fishingAnim;
     private static int fishingSpotId;
     private static int fishingToolId;
@@ -175,67 +175,4 @@ public class Constants {
         return toBank;
     }
 
-    public static int getBankInterfaceId() {
-        return BANK_INTERFACE_ID;
-    }
-
-    public static int getBankBoothId() {
-        return BANK_BOOTH_ID;
-    }
-
-    public static int getWithdrawFive() {
-        return WITHDRAW_FIVE;
-    }
-
-    public static int getWithdrawOne() {
-        return WITHDRAW_ONE;
-    }
-
-    public static int getWithdrawTen() {
-        return WITHDRAW_TEN;
-    }
-
-    public static int getWithdrawX() {
-        return WITHDRAW_X;
-    }
-
-    public static int getWithdrawAll() {
-        return WITHDRAW_ALL;
-    }
-
-    public static int getWithdrawAllButOne() {
-        return WITHDRAW_ALL_BUT_ONE;
-    }
-
-    public enum FishingTypes {
-        SHRIMP(304, 621, 316, Npcs.Option.NET), LOBSTER(302, 619, 312, Npcs.Option.CAGE), TUNASWORDFISH(312, 618, 312, Npcs.Option.HARPOON), ROCKTAIL(304, 621, 313, Npcs.Option.NET);
-
-        private final int toolId;
-        private final int animId;
-        private final int spotId;
-        private final Npcs.Option option;
-
-        FishingTypes(int toolId, int animId, int spotId, Npcs.Option option) {
-            this.toolId = toolId;
-            this.animId = animId;
-            this.spotId = spotId;
-            this.option = option;
-        }
-
-        public int getToolId() {
-            return toolId;
-        }
-
-        public int getAnimId() {
-            return animId;
-        }
-
-        public int getSpotId() {
-            return spotId;
-        }
-
-        public Npcs.Option getOption() {
-            return option;
-        }
-    }
 }

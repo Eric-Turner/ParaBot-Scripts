@@ -1,6 +1,7 @@
 package org.parabot.crandor.fishing;
 
 import org.parabot.crandor.fishing.resources.Constants;
+import org.parabot.crandor.fishing.resources.FishingTypes;
 import org.parabot.crandor.fishing.resources.GUI;
 import org.parabot.crandor.fishing.resources.Methods;
 import org.parabot.crandor.fishing.strategies.Banking;
@@ -43,10 +44,10 @@ public class Main extends Script {
             if (Methods.isBetween(Skill.FISHING.getRealLevel(), 1, 34)) {
                 //Net Fishing
                 Constants.setNetFishing(true);
-                Constants.setFishingSpotId(Constants.FishingTypes.SHRIMP.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.SHRIMP.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.SHRIMP.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.SHRIMP.getToolId());
+                Constants.setFishingSpotId(FishingTypes.SHRIMP.getSpotId());
+                Constants.setFishingAnim(FishingTypes.SHRIMP.getAnimId());
+                Constants.setInteractOption(FishingTypes.SHRIMP.getOption());
+                Constants.setFishingToolId(FishingTypes.SHRIMP.getToolId());
                 Constants.setToSpot(Constants.getToDockOne());
             }
             if (Methods.isBetween(Skill.FISHING.getRealLevel(), 35, 40)) {
@@ -54,30 +55,30 @@ public class Main extends Script {
 
                 Constants.setNetFishing(false);
                 Constants.setHarpoonFishing(true);
-                Constants.setFishingSpotId(Constants.FishingTypes.TUNASWORDFISH.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.TUNASWORDFISH.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.TUNASWORDFISH.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.TUNASWORDFISH.getToolId());
+                Constants.setFishingSpotId(FishingTypes.TUNASWORDFISH.getSpotId());
+                Constants.setFishingAnim(FishingTypes.TUNASWORDFISH.getAnimId());
+                Constants.setInteractOption(FishingTypes.TUNASWORDFISH.getOption());
+                Constants.setFishingToolId(FishingTypes.TUNASWORDFISH.getToolId());
                 Constants.setToSpot(Constants.getToDockTwo());
             }
             if (Methods.isBetween(Skill.FISHING.getRealLevel(), 40, 98)) {
                 //Cage fishing
                 Constants.setCageFishing(true);
                 Constants.setHarpoonFishing(false);
-                Constants.setFishingSpotId(Constants.FishingTypes.LOBSTER.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.LOBSTER.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.LOBSTER.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.LOBSTER.getToolId());
+                Constants.setFishingSpotId(FishingTypes.LOBSTER.getSpotId());
+                Constants.setFishingAnim(FishingTypes.LOBSTER.getAnimId());
+                Constants.setInteractOption(FishingTypes.LOBSTER.getOption());
+                Constants.setFishingToolId(FishingTypes.LOBSTER.getToolId());
                 Constants.setToSpot(Constants.getToDockTwo());
             }
             if (Skill.FISHING.getRealLevel() == 99) {
                 //Rocktail fishing
                 Constants.setCageFishing(false);
                 Constants.setRocktailFishing(true);
-                Constants.setFishingSpotId(Constants.FishingTypes.ROCKTAIL.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.ROCKTAIL.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.ROCKTAIL.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.ROCKTAIL.getToolId());
+                Constants.setFishingSpotId(FishingTypes.ROCKTAIL.getSpotId());
+                Constants.setFishingAnim(FishingTypes.ROCKTAIL.getAnimId());
+                Constants.setInteractOption(FishingTypes.ROCKTAIL.getOption());
+                Constants.setFishingToolId(FishingTypes.ROCKTAIL.getToolId());
                 Constants.setToSpot(Constants.getToDockTwo());
             }
         }
