@@ -67,24 +67,35 @@ public class GUI extends JFrame {
                     switch (comboBox.getSelectedItem().toString()) {
                         case "Net":
                             Constants.setNetFishing(true);
-                            Constants.setFishingSpotId(Constants.FishingTypes.NET.getSpotId());
-                            Constants.setFishingAnim(Constants.FishingTypes.NET.getAnimId());
-                            Constants.setInteractOption(Constants.FishingTypes.NET.getOption());
-                            Constants.setFishingToolId(Constants.FishingTypes.NET.getToolId());
+                            Constants.setFishingSpotId(Constants.FishingTypes.SHRIMP.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.SHRIMP.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.SHRIMP.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.SHRIMP.getToolId());
+                            Constants.setToSpot(Constants.getToDockOne());
                             break;
                         case "Cage":
                             Constants.setCageFishing(true);
-                            Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
-                            Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
-                            Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
-                            Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
+                            Constants.setFishingSpotId(Constants.FishingTypes.LOBSTER.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.LOBSTER.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.LOBSTER.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.LOBSTER.getToolId());
+                            Constants.setToSpot(Constants.getToDockTwo());
                             break;
                         case "Harpoon":
                             Constants.setHarpoonFishing(true);
-                            Constants.setFishingSpotId(Constants.FishingTypes.HARPOON.getSpotId());
-                            Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
-                            Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
-                            Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
+                            Constants.setFishingSpotId(Constants.FishingTypes.TUNASWORDFISH.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.TUNASWORDFISH.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.TUNASWORDFISH.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.TUNASWORDFISH.getToolId());
+                            Constants.setToSpot(Constants.getToDockTwo());
+                            break;
+                        case "Rocktail":
+                            Constants.setRocktailFishing(true);
+                            Constants.setFishingSpotId(Constants.FishingTypes.ROCKTAIL.getSpotId());
+                            Constants.setFishingAnim(Constants.FishingTypes.ROCKTAIL.getAnimId());
+                            Constants.setInteractOption(Constants.FishingTypes.ROCKTAIL.getOption());
+                            Constants.setFishingToolId(Constants.FishingTypes.ROCKTAIL.getToolId());
+                            Constants.setToSpot(Constants.getToDockTwo());
                             break;
                     }
                 }

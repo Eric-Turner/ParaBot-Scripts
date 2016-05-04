@@ -9,6 +9,7 @@ import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.methods.Skill;
 import org.rev317.min.api.wrappers.Npc;
+import org.rev317.min.api.wrappers.TilePath;
 
 /**
  * Created by Eric on 4/29/2016.
@@ -23,15 +24,6 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
 
     @Override
     public void execute() {
-        if (Constants.getToSpot().getTiles()[3].distanceTo() > 7) {
-            Constants.getToSpot().traverse();
-            Time.sleep(new SleepCondition() {
-                @Override
-                public boolean isValid() {
-                    return Constants.getToSpot().hasReached();
-                }
-            }, 1500);
-        }
 
         if (Constants.AutoProgression()) {
 
@@ -40,34 +32,53 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
             if (Methods.isBetween(Skill.FISHING.getRealLevel(), 1, 34)) {
                 //Net Fishing
                 Constants.setNetFishing(true);
-                Constants.setCageFishing(false);
-                Constants.setHarpoonFishing(false);
-                Constants.setFishingSpotId(Constants.FishingTypes.NET.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.NET.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.NET.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.NET.getToolId());
+                Constants.setFishingSpotId(Constants.FishingTypes.SHRIMP.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.SHRIMP.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.SHRIMP.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.SHRIMP.getToolId());
+                Constants.setToSpot(Constants.getToDockOne());
             }
             if (Methods.isBetween(Skill.FISHING.getRealLevel(), 35, 40)) {
                 //Harpoon fishing
 
                 Constants.setNetFishing(false);
-                Constants.setCageFishing(false);
                 Constants.setHarpoonFishing(true);
-                Constants.setFishingSpotId(Constants.FishingTypes.HARPOON.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.HARPOON.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.HARPOON.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.HARPOON.getToolId());
-
+                Constants.setFishingSpotId(Constants.FishingTypes.TUNASWORDFISH.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.TUNASWORDFISH.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.TUNASWORDFISH.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.TUNASWORDFISH.getToolId());
+                Constants.setToSpot(Constants.getToDockTwo());
             }
-            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 40, 99)) {
+            if (Methods.isBetween(Skill.FISHING.getRealLevel(), 40, 98)) {
                 //Cage fishing
-                Constants.setNetFishing(false);
                 Constants.setCageFishing(true);
                 Constants.setHarpoonFishing(false);
-                Constants.setFishingSpotId(Constants.FishingTypes.CAGE.getSpotId());
-                Constants.setFishingAnim(Constants.FishingTypes.CAGE.getAnimId());
-                Constants.setInteractOption(Constants.FishingTypes.CAGE.getOption());
-                Constants.setFishingToolId(Constants.FishingTypes.CAGE.getToolId());
+                Constants.setFishingSpotId(Constants.FishingTypes.LOBSTER.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.LOBSTER.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.LOBSTER.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.LOBSTER.getToolId());
+                Constants.setToSpot(Constants.getToDockTwo());
+            }
+            if (Skill.FISHING.getRealLevel() == 99) {
+                //Rocktail fishing
+                Constants.setCageFishing(false);
+                Constants.setRocktailFishing(true);
+                Constants.setFishingSpotId(Constants.FishingTypes.ROCKTAIL.getSpotId());
+                Constants.setFishingAnim(Constants.FishingTypes.ROCKTAIL.getAnimId());
+                Constants.setInteractOption(Constants.FishingTypes.ROCKTAIL.getOption());
+                Constants.setFishingToolId(Constants.FishingTypes.ROCKTAIL.getToolId());
+                Constants.setToSpot(Constants.getToDockTwo());
+            }
+        }
+        if (Constants.getToSpot() != null) {
+            if (Constants.getToSpot().getTiles()[Constants.getToSpot().getTiles().length - 1].distanceTo() > 7) {
+                Constants.getToSpot().traverse();
+                Time.sleep(new SleepCondition() {
+                    @Override
+                    public boolean isValid() {
+                        return Constants.getToSpot().hasReached();
+                    }
+                }, 1500);
             }
         }
         final Npc fishingSpot = Npcs.getClosest(Constants.getFishingSpotId());

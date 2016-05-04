@@ -24,25 +24,48 @@ public class Constants {
     static boolean netFishing = false;
     static boolean harpoonFishing = false;
     static boolean cageFishing = false;
+    static boolean rocktailFishing = false;
     static boolean banking = false;
     static boolean dropping = false;
     static boolean running = false;
     static boolean autoProgression = false;
+    static Npcs.Option interactOption;
     static Tile[] WALKING_PATH_TO_BANK = {
             new Tile(2601, 3406, 0),
             new Tile(2593, 3415, 0),
-            new Tile(2586, 3421, 0)};
-    static Npcs.Option interactOption;
-    static Tile[] WALKING_PATH_TO_SPOT = {
+            new Tile(2586, 3421, 0)
+    };
+    static Tile[] WALKING_PATH_TO_DOCK_1 = { //Net fishing dock
             new Tile(2586, 3421, 0),
             new Tile(2593, 3415, 0),
             new Tile(2601, 3406, 0),
-            new Tile(2604, 3414, 0)};
-    static TilePath toSpot = new TilePath(WALKING_PATH_TO_SPOT);
+            new Tile(2604, 3414, 0)
+    };
+    static Tile[] WALKING_PATH_TO_DOCK_2= { // Rocktail, cage, harpoon dock
+            new Tile(2594, 3418, 0),
+            new Tile(2600, 3422, 0)
+    };
     static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
+    static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
+    static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
 
     public static TilePath getToSpot() {
         return toSpot;
+    }
+
+    public static void setToSpot(TilePath toSpot) {
+        Constants.toSpot = toSpot;
+    }
+
+    static TilePath toSpot;
+
+    public static TilePath getToDockOne() {
+        return toDockOne;
+    }
+
+
+    public static TilePath getToDockTwo() {
+        return toDockTwo;
     }
 
     public static boolean isHarpoonFishing() {
@@ -57,8 +80,16 @@ public class Constants {
         return cageFishing;
     }
 
-    public static void setCageFishing(boolean cageFishing) {
-        Constants.cageFishing = cageFishing;
+    public static void setCageFishing(boolean rocktailFishing) {
+        Constants.rocktailFishing = rocktailFishing;
+    }
+
+    public static boolean isRocktailFishing() {
+        return cageFishing;
+    }
+
+    public static void setRocktailFishing(boolean rocktailFishing) {
+        Constants.rocktailFishing = rocktailFishing;
     }
 
     public static boolean AutoProgression() {
@@ -93,8 +124,12 @@ public class Constants {
         Constants.interactOption = interactOption;
     }
 
-    public static Tile[] getWalkingPathToSpot() {
-        return WALKING_PATH_TO_SPOT;
+    public static Tile[] getWalkingPathToDock1() {
+        return WALKING_PATH_TO_DOCK_1;
+    }
+
+    public static Tile[] getWalkingPathToDock2() {
+        return WALKING_PATH_TO_DOCK_2;
     }
 
     public static boolean isNetFishing() {
@@ -174,7 +209,7 @@ public class Constants {
     }
 
     public enum FishingTypes {
-        NET(304, 621, 316, Npcs.Option.NET), CAGE(302, 619, 312, Npcs.Option.CAGE), HARPOON(312, 618, 312, Npcs.Option.HARPOON);
+        SHRIMP(304, 621, 316, Npcs.Option.NET), LOBSTER(302, 619, 312, Npcs.Option.CAGE), TUNASWORDFISH(312, 618, 312, Npcs.Option.HARPOON), ROCKTAIL(304, 621, 313, Npcs.Option.NET);
 
         private final int toolId;
         private final int animId;
