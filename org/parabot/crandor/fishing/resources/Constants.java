@@ -41,13 +41,14 @@ public class Constants {
             new Tile(2601, 3406, 0),
             new Tile(2604, 3414, 0)
     };
-    static Tile[] WALKING_PATH_TO_DOCK_2= { // Rocktail, cage, harpoon dock
+    static Tile[] WALKING_PATH_TO_DOCK_2 = { // Rocktail, cage, harpoon dock
             new Tile(2594, 3418, 0),
             new Tile(2600, 3422, 0)
     };
     static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
     static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
     static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
+    static TilePath toSpot;
 
     public static TilePath getToSpot() {
         return toSpot;
@@ -56,8 +57,6 @@ public class Constants {
     public static void setToSpot(TilePath toSpot) {
         Constants.toSpot = toSpot;
     }
-
-    static TilePath toSpot;
 
     public static TilePath getToDockOne() {
         return toDockOne;

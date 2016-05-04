@@ -9,7 +9,6 @@ import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.methods.Skill;
 import org.rev317.min.api.wrappers.Npc;
-import org.rev317.min.api.wrappers.TilePath;
 
 /**
  * Created by Eric on 4/29/2016.
@@ -84,12 +83,9 @@ public class Fishing implements org.parabot.environment.scripts.framework.Strate
         final Npc fishingSpot = Npcs.getClosest(Constants.getFishingSpotId());
         if (fishingSpot != null) {
             if (fishingSpot.distanceTo() <= 5) {
-                //Start fishing
-                if (fishingSpot != null) {
-                    if (Players.getMyPlayer().getAnimation() != Constants.getFishingAnim()) {
-                        fishingSpot.interact(Constants.getInteractOption());
-                        Time.sleep(1000);
-                    }
+                if (Players.getMyPlayer().getAnimation() != Constants.getFishingAnim()) {
+                    fishingSpot.interact(Constants.getInteractOption());
+                    Time.sleep(1000);
                 }
             }
         }
