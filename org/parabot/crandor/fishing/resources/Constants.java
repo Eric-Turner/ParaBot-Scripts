@@ -45,9 +45,9 @@ public class Constants {
             new Tile(2594, 3418, 0),
             new Tile(2600, 3422, 0)
     };
-    private final static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
-    private final static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
-    private final static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
+    public final static TilePath toBank = new TilePath(WALKING_PATH_TO_BANK);
+    public final static TilePath toDockOne = new TilePath(WALKING_PATH_TO_DOCK_1);
+    public final static TilePath toDockTwo = new TilePath(WALKING_PATH_TO_DOCK_2);
     private static TilePath toSpot;
 
     public static TilePath getToSpot() {
@@ -121,14 +121,6 @@ public class Constants {
 
     public static void setInteractOption(Npcs.Option interactOption) {
         Constants.interactOption = interactOption;
-    }
-
-    public static Tile[] getWalkingPathToDock1() {
-        return WALKING_PATH_TO_DOCK_1;
-    }
-
-    public static Tile[] getWalkingPathToDock2() {
-        return WALKING_PATH_TO_DOCK_2;
     }
 
     public static boolean isNetFishing() {
