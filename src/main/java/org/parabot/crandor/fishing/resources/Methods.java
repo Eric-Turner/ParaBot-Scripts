@@ -9,10 +9,9 @@ import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.wrappers.Tile;
 
 /**
- * Created by Eric on 4/28/2016.
+ * @author EricTurner
  */
 public class Methods {
-
 
     public static void walkTo(Tile to) {
         RefClass refClass = new RefClass(Loader.getClient());

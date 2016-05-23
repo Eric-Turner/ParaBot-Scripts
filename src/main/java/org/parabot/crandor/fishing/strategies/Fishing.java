@@ -1,7 +1,7 @@
 package org.parabot.crandor.fishing.strategies;
 
-import org.parabot.crandor.fishing.resources.Constants;
-import org.parabot.crandor.fishing.resources.Methods;
+import org.parabot.crandor.fishing.resources.Fish;
+import org.parabot.crandor.fishing.resources.Variables;
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.scripts.framework.SleepCondition;
 import org.rev317.min.api.methods.Inventory;
@@ -11,36 +11,40 @@ import org.rev317.min.api.methods.Skill;
 import org.rev317.min.api.wrappers.Npc;
 
 /**
- * Created by Eric on 4/29/2016.
+ * @author EricTurner
  */
 public class Fishing implements org.parabot.environment.scripts.framework.Strategy {
 
-
     @Override
     public boolean activate() {
-        return !Inventory.isFull();
+        return !Inventory.isFull() && Inventory.contains(Variables.getFish().getToolId());
     }
 
     @Override
     public void execute() {
-
-
-        if (Constants.getToSpot() != null) {
-            if (Constants.getToSpot().getTiles()[Constants.getToSpot().getTiles().length - 1].distanceTo() > 7) {
-                Constants.getToSpot().traverse();
+        if (Variables.isAutoProgression()) {
+            for (Fish fish : Fish.values()) {
+                if (Skill.FISHING.getRealLevel() >= fish.getRequiredLevel()) {
+                    Variables.setFish(fish);
+                }
+            }
+        }
+        if (Variables.getToSpot() != null) {
+            if (Variables.getToSpot().getTiles()[Variables.getToSpot().getTiles().length - 1].distanceTo() > 7) {
+                Variables.getToSpot().traverse();
                 Time.sleep(new SleepCondition() {
                     @Override
                     public boolean isValid() {
-                        return Constants.getToSpot().hasReached();
+                        return Variables.getToSpot().hasReached();
                     }
                 }, 1500);
             }
         }
-        final Npc fishingSpot = Npcs.getClosest(Constants.getFishingSpotId());
+        final Npc fishingSpot = Npcs.getClosest(Variables.getFish().getSpotId());
         if (fishingSpot != null) {
             if (fishingSpot.distanceTo() <= 5) {
-                if (Players.getMyPlayer().getAnimation() != Constants.getFishingAnim()) {
-                    fishingSpot.interact(Constants.getInteractOption());
+                if (Players.getMyPlayer().getAnimation() != Variables.getFish().getAnimId()) {
+                    fishingSpot.interact(Variables.getFish().getOption());
                     Time.sleep(1000);
                 }
             }
