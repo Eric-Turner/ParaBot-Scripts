@@ -1,7 +1,7 @@
 package org.parabot.crandor.fishing.resources;
 
 /**
- * Created by Eric on 4/29/2016.
+ * @author EricTurner
  */
 
 import javax.swing.*;
@@ -11,17 +11,13 @@ import java.awt.event.ActionListener;
 
 public class GUI extends JFrame {
 
-    private final ButtonGroup BankorDrop = new ButtonGroup();
-    private JPanel contentPane;
-
-
     /**
      * Create the frame.
      */
     public GUI() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 450, 300);
-        contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
@@ -31,12 +27,13 @@ public class GUI extends JFrame {
         contentPane.add(lblBankOrPowerfish);
 
         final JRadioButton rdbtnBank = new JRadioButton("Bank");
-        BankorDrop.add(rdbtnBank);
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(rdbtnBank);
         rdbtnBank.setBounds(36, 65, 109, 23);
         contentPane.add(rdbtnBank);
 
         final JRadioButton rdbtnPowerfish = new JRadioButton("PowerFish");
-        BankorDrop.add(rdbtnPowerfish);
+        buttonGroup.add(rdbtnPowerfish);
         rdbtnPowerfish.setBounds(36, 91, 109, 23);
         contentPane.add(rdbtnPowerfish);
 
@@ -62,54 +59,36 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (chckbxAutoProgression.isSelected()) {
-                    Constants.setAutoProgression(true);
+                    Variables.setAutoProgression(true);
                 } else {
                     switch (comboBox.getSelectedItem().toString()) {
                         case "Net":
-                            Constants.setNetFishing(true);
-                            Constants.setFishingSpotId(FishingTypes.SHRIMP.getSpotId());
-                            Constants.setFishingAnim(FishingTypes.SHRIMP.getAnimId());
-                            Constants.setInteractOption(FishingTypes.SHRIMP.getOption());
-                            Constants.setFishingToolId(FishingTypes.SHRIMP.getToolId());
-                            Constants.setToSpot(Constants.getToDockOne());
+                            Variables.setFish(Fish.SHRIMP);
+                            Variables.setToSpot(Constants.toDockOne);
                             break;
                         case "Cage":
-                            Constants.setCageFishing(true);
-                            Constants.setFishingSpotId(FishingTypes.LOBSTER.getSpotId());
-                            Constants.setFishingAnim(FishingTypes.LOBSTER.getAnimId());
-                            Constants.setInteractOption(FishingTypes.LOBSTER.getOption());
-                            Constants.setFishingToolId(FishingTypes.LOBSTER.getToolId());
-                            Constants.setToSpot(Constants.getToDockTwo());
+                            Variables.setFish(Fish.LOBSTER);
+                            Variables.setToSpot(Constants.toDockTwo);
                             break;
                         case "Harpoon":
-                            Constants.setHarpoonFishing(true);
-                            Constants.setFishingSpotId(FishingTypes.TUNASWORDFISH.getSpotId());
-                            Constants.setFishingAnim(FishingTypes.TUNASWORDFISH.getAnimId());
-                            Constants.setInteractOption(FishingTypes.TUNASWORDFISH.getOption());
-                            Constants.setFishingToolId(FishingTypes.TUNASWORDFISH.getToolId());
-                            Constants.setToSpot(Constants.getToDockTwo());
+                            Variables.setFish(Fish.TUNASWORDFISH);
+                            Variables.setToSpot(Constants.toDockTwo);
                             break;
                         case "Rocktail":
-                            Constants.setRocktailFishing(true);
-                            Constants.setFishingSpotId(FishingTypes.ROCKTAIL.getSpotId());
-                            Constants.setFishingAnim(FishingTypes.ROCKTAIL.getAnimId());
-                            Constants.setInteractOption(FishingTypes.ROCKTAIL.getOption());
-                            Constants.setFishingToolId(FishingTypes.ROCKTAIL.getToolId());
-                            Constants.setToSpot(Constants.getToDockTwo());
+                            Variables.setFish(Fish.ROCKTAIL);
+                            Variables.setToSpot(Constants.toDockTwo);
                             break;
                     }
                 }
                 if (rdbtnBank.isSelected())
-                    Constants.setBanking(true);
+                    Variables.setBanking(true);
 
                 if (rdbtnPowerfish.isSelected())
-                    Constants.setDropping(true);
+                    Variables.setDropping(true);
 
 
                 GUI.this.setVisible(false);
                 GUI.this.dispose();
-
-                Constants.setRunning(true);
 
             }
         });
